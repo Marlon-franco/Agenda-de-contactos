@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="container">
+<div class="d-flex justify-content-center"><h3>AGENDA DE CONTACTOS</h3></div>
+<!-- se crea un mensaje de un solo consumo si el contacto se  creo correctamente
+                                                       "  ne null " (not equals null)-->
+  <div class="alert alert-success alert-dismissible mt-3" th:if="${msgExito ne null}">
+      [[${msgExito}]]
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+
+                <!-- nos dirige a la pagina de agregar nuevo contacto  -->
+<div class="text-end">
+    <a href="/nuevo" class="btn btn-primary">Registrar nuevo contacto</a>
+</div>
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Fechas de Nacimiento</th>
+        <th>Celular</th>
+        <th>Email</th>
+        <th>Fecha de Registro</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--
+       - "th:each" atributo de THYMELEAF para iterar sobre el objeto,
+       - a "contacto" se le agrega el $ porque es una varible que se recibe del controlador  -->
+    <tr th:each="contacto:${contactos}">
+
+        <td th:text="${contacto.id} "></td>
+        <td th:text="${contacto.nombre} "></td>
+        <td th:text="${#temporals.format(contacto.fechaNacimiento,'dd/MM/YYYY')}"></td>
+        <td th:text="${contacto.celular} "></td>
+        <td th:text="${contacto.email} "></td>
+        <td th:text="${#temporals.format(contacto.fechaRegistro,'dd/MM/YYYY hh:mm a')} "></td>
+
+        <td>
+            <a class="btn btn-warning">Editar</a>
+            <a class="btn btn-danger">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="d-flex justify-content-center"><h6 class="h5" >by Marlon Franco</h6>
+</div>
+</body>
+</html>
