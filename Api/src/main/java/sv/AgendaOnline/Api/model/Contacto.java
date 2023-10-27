@@ -1,6 +1,10 @@
 package sv.AgendaOnline.Api.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -14,13 +18,18 @@ public class Contacto {
     // se agrega la notacion "@colum" para que coincida con la base de datos
     @Column(name = "idcontacto")
     private Integer id;
+    @NotBlank
     private String nombre;
 
     // se agrega la notacion "@DateTimeFormat" para especificar el tipo de fecha
+    @PastOrPresent // validacion para que la fecha no sea en futuro
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "fechanac")
     private LocalDate fechaNacimiento;
+    @Size(max=15) //validacion
     private String celular;
+
+    @Email // validacion del correo
     private String email;
     @Column(name = "fechareg")
     private LocalDateTime fechaRegistro;
