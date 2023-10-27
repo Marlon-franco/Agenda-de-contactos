@@ -18,7 +18,7 @@ Clona este repositorio:
 
 shell
 Copy code
-git clone https://github.com/tuusuario/agenda-de-contactos.git
+git clone https://github.com/Marlon-franco/Agenda-de-contactos.git
 Importa el proyecto en tu entorno de desarrollo preferido (por ejemplo, Eclipse o IntelliJ IDEA).
 
 Configura la conexión a la base de datos MySQL en src/main/resources/application.properties.
@@ -33,7 +33,7 @@ Ejecuta la aplicación:
 shell
 Copy code
 mvn spring-boot:run
-Abre un navegador web y visita http://localhost:8080 para acceder a la aplicación.
+Abre un navegador web y visita http://localhost:9090 para acceder a la aplicación.
 
 Uso
 Crear un nuevo contacto: Haz clic en el botón "Crear Contacto" y completa el formulario.
@@ -54,4 +54,4 @@ Contacto
 Si tienes alguna pregunta o comentario, no dudes en ponerte en contacto con el desarrollador:
 
 Nombre: Marlon Franco
-Correo electrónico: marlonfrancolynx@mail.com
+Correo electrónico: marlonfrancolynx@gmail.com
